@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemRegistrarCita"
+        android:title="Agendar"
+        android:icon="@drawable/reserva"/>
+    <item
+        android:id="@+id/itemReservasRealizadas"
+        android:title="Reservas Realizadas"
+        android:icon="@drawable/calendario"/>
+    <item
+        android:id="@+id/itemMedicos"
+        android:title="Medicos"
+        android:icon="@drawable/medico"/>
+</menu>

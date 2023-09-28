@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentos_agendar.centrosClinicos">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleVolverEdit"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/icon_atras"
+            android:layout_margin="10dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tituloTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MEDICOS"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="0.6"
+                app:layout_constraintHorizontal_bias="0.4"
+                android:layout_marginRight="18dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_above="@id/bottomNavigationView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/hospital1"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hospital Infantil Concejo de Medellin"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/direccion_hospital1"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Cl. 72a # 48-70"
+                                android:layout_marginBottom="3dp"
+                                android:padding="2dp" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 44446425"
+                                android:padding="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:id="@+id/imageView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/hospital2"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:id="@+id/titleTextView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Clinmica Medellin S.A.S "
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/direccion_hospital2"
+                                android:layout_marginBottom="3dp"
+                                android:scaleType="centerCrop"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: 65B #30-95"
+                                android:layout_marginBottom="3dp"
+                                android:padding="2dp" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: (604) 4446152"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/hospital3"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hospital General de Medellín"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/direccion_hospital3"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Cra. 48 #32 - 102"
+                                android:layout_marginBottom="3dp"
+                                android:padding="2dp" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: (604) 3847300"
+                                android:padding="2dp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/hospital4"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:id="@+id/titleTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Clinica El Rosario"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/direccion_hospital4"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Cra. 41 #62-5"
+                                android:padding="2dp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 42910625"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+</RelativeLayout>
