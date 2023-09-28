@@ -40,6 +40,8 @@ public class Contenedor extends AppCompatActivity {
                 abrirFragmento(new reservarCita());
             }else if (valorRecibido == 4) {
                 abrirFragmento(new centrosClinicos());
+            }else if (valorRecibido == 5) {
+                abrirFragmento(new medicos());
             }
         }else {
             //abrirFragmento(new ingresarReserva());

@@ -1,5 +1,6 @@
 package com.straccion.reservahotel.fragmento_medicos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.straccion.reservahotel.Contenedor;
 import com.straccion.reservahotel.R;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +21,8 @@ import com.straccion.reservahotel.R;
  * create an instance of this fragment.
  */
 public class medicos extends Fragment {
+    CircleImageView imgVolverFiltro;
+    View mView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +68,16 @@ public class medicos extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_medicos, container, false);
+        mView = inflater.inflate(R.layout.fragment_medicos, container, false);
+        imgVolverFiltro = mView.findViewById(R.id.imgVolverFiltro);
+
+        imgVolverFiltro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
+
+        return mView;
     }
 }

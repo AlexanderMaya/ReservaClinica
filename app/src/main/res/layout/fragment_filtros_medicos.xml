@@ -5,12 +5,27 @@
     android:layout_height="match_parent"
     tools:context=".fragmento_medicos.filtrosMedicos">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MEDICOS"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <LinearLayout
@@ -24,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:elevation="4dp"
+                android:elevation="6dp"
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout
@@ -38,7 +53,8 @@
                         android:layout_gravity="center"
                         android:layout_marginRight="45dp"
                         android:text="Seleccione el servicio"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:layout_marginTop="40dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -53,7 +69,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginRight="5dp"
-                            android:src="@drawable/icon_ciudad" />
+                            android:src="@drawable/medico" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -91,7 +107,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginRight="5dp"
-                            android:src="@drawable/icon_especialidad" />
+                            android:src="@drawable/icon_ciudad" />
 
                         <androidx.appcompat.widget.AppCompatSpinner
                             android:layout_width="match_parent"
@@ -105,13 +121,13 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/btnConsultar"
+                        android:id="@+id/btnConsultarMedico"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="95dp"
+                        android:layout_marginTop="75dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginBottom="60dp"
+                        android:layout_marginBottom="40dp"
                         android:backgroundTint="@color/blue"
                         android:text="CONSULTAR" />
 

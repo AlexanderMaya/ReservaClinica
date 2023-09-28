@@ -41,12 +41,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginBottom="35dp">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
             android:layout_above="@id/bottomNavigationView">
 
             <LinearLayout

@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleVolverEdit"
+            android:id="@+id/imgVolverFiltro"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/icon_atras"

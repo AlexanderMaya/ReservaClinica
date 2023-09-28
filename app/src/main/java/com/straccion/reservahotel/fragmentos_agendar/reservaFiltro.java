@@ -78,21 +78,21 @@ public class reservaFiltro extends Fragment {
         btnConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                consular(3);
+                consultar(3);
             }
         });
 
         imgRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                consular(1);
+                consultar(1);
             }
         });
 
         return mView;
     }
 
-    public void consular(int abrirventana){
+    public void consultar(int abrirventana){
         Intent intent = new Intent(getContext(), Contenedor.class);
         int ventana = abrirventana;
         intent.putExtra("abrir_Contenedor", ventana);
