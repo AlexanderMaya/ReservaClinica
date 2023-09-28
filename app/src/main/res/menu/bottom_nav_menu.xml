@@ -11,5 +11,5 @@
     <item
         android:id="@+id/itemMedicos"
         android:title="Medicos"
-        android:icon="@drawable/medico"/>
+        android:icon="@drawable/medico" />
 </menu>

@@ -3,11 +3,13 @@ package com.straccion.reservahotel;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,27 +31,8 @@ public class Contenedor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contenedor);
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            int valorRecibido = intent.getIntExtra("abrir_Contenedor", 0);
-            if (valorRecibido == 1){
-                abrirFragmento(new ingresarReserva());
-            } else if (valorRecibido == 2) {
-                abrirFragmento(new reservaFiltro());
-            }else if (valorRecibido == 3) {
-                abrirFragmento(new reservarCita());
-            }else if (valorRecibido == 4) {
-                abrirFragmento(new centrosClinicos());
-            }else if (valorRecibido == 5) {
-                abrirFragmento(new medicos());
-            }
-        }else {
-            //abrirFragmento(new ingresarReserva());
-        }
-
         //Pagina documentacion: https://androidwave.com/bottom-navigation-bar-android-example/
         bottomNavigation = findViewById(R.id.bottomNavigationView);
-
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -64,6 +47,30 @@ public class Contenedor extends AppCompatActivity {
             }
 
         });
+
+
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            int valorRecibido = intent.getIntExtra("abrir_Contenedor", 0);
+            if (valorRecibido == 1){
+                abrirFragmento(new ingresarReserva());
+            } else if (valorRecibido == 2) {
+                abrirFragmento(new reservaFiltro());
+            }else if (valorRecibido == 3) {
+                abrirFragmento(new reservarCita());
+            }else if (valorRecibido == 4) {
+                abrirFragmento(new centrosClinicos());
+            }else if (valorRecibido == 5) {
+                abrirFragmento(new medicos());
+                MenuItem menuItem = bottomNavigation.getMenu().findItem(R.id.itemMedicos);
+                menuItem.setChecked(true);// sirve para tener el item de medico seleccioando
+            }
+        }else {
+            //abrirFragmento(new ingresarReserva());
+        }
+
+
 
     }
     public void abrirFragmento(Fragment fragment) {

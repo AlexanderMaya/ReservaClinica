@@ -19,8 +19,7 @@
             android:layout_gravity="bottom"
             app:menu="@menu/bottom_nav_menu"
             app:backgroundTint="@color/aguamarina"
-            app:itemBackground="@drawable/bottom_nav_item_background"
-            />
+            app:itemBackground="@drawable/bottom_nav_item_background"/>
 
     </FrameLayout>
 
