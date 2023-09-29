@@ -5,16 +5,24 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
+
 
 import com.straccion.reservahotel.Contenedor;
 import com.straccion.reservahotel.R;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +32,7 @@ import com.straccion.reservahotel.R;
 public class reservaFiltro extends Fragment {
 
     Button btnConsultar;
+    AppCompatSpinner spnCiudad, spnEspecialidad;
     ImageView imgRegresar;
     View mView;
 
@@ -65,6 +74,7 @@ public class reservaFiltro extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -74,6 +84,20 @@ public class reservaFiltro extends Fragment {
         mView = inflater.inflate(R.layout.fragment_reserva_filtro, container, false);
         btnConsultar = mView.findViewById(R.id.btnConsultar);
         imgRegresar = mView.findViewById(R.id.imgRegresar);
+        spnCiudad = mView.findViewById(R.id.spnCiudad);
+        spnEspecialidad = mView.findViewById(R.id.spnEspecialidad);
+
+
+
+        String[] opcionesCiudad = {"Medellin", "Bogota", "Cali", "Barranquilla"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, opcionesCiudad);
+        spnCiudad.setAdapter(adapter);
+
+        String[] opcionesEspcialidad = {"Bioenergetica", "Dermatologia", "Ginecologia", "Medicina Interna", "Oftalmologia", "Ortopedia y Traumatologia", "Pediatria", "Urologia"};
+        ArrayAdapter<String> adap = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, opcionesEspcialidad);
+        spnEspecialidad.setAdapter(adap);
+
+
 
         btnConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +113,11 @@ public class reservaFiltro extends Fragment {
             }
         });
 
+
         return mView;
+
+
+
     }
 
     public void consultar(int abrirventana){
@@ -98,7 +126,6 @@ public class reservaFiltro extends Fragment {
         intent.putExtra("abrir_Contenedor", ventana);
         startActivity(intent);
     }
-
 
 
 

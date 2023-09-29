@@ -8,5 +8,7 @@
     <color name="aguamarina2.0">#009472</color>
     <color name="grisClaro">#F1F1F1</color>
     <color name="grisClaro2.0">#EDEDED</color>
+    <color name="grisOscuro">#303030</color>
+
 
 </resources>
