@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginRight="45dp"
+                        android:layout_marginRight="35dp"
                         android:text="Seleccione el servicio"
                         android:textSize="15dp"
                         android:layout_marginTop="40dp"/>
@@ -76,14 +76,17 @@
                             android:layout_height="wrap_content">
 
                             <androidx.appcompat.widget.AppCompatSpinner
-                                android:id="@+id/mi_appcompat_spinner"
+                                android:id="@+id/spnServicio"
                                 android:layout_width="match_parent"
-                                android:layout_height="48dp"
+                                android:layout_height="58dp"
                                 android:layout_marginBottom="8dp"
                                 android:layout_marginRight="8dp"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginLeft="2dp"
-                                android:background="@drawable/spinner_border" />
+                                android:background="@drawable/spinner_border"
+                                android:overlapAnchor="false"
+                                android:spinnerMode="dialog"
+                                android:prompt="@string/seleccionarEspecialidad"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -92,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="40dp"
-                        android:layout_marginRight="48dp"
+                        android:layout_marginRight="38dp"
                         android:text="Seleccione la ciudad"
                         android:textSize="15dp" />
 
@@ -111,13 +114,17 @@
                             android:src="@drawable/icon_ciudad" />
 
                         <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spnElegirCiudad"
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
+                            android:layout_height="58dp"
                             android:layout_marginBottom="8dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginLeft="2dp"
-                            android:background="@drawable/spinner_border" />
+                            android:background="@drawable/spinner_border"
+                            android:overlapAnchor="false"
+                            android:spinnerMode="dialog"
+                            android:prompt="@string/seleccionarCiudad"/>
 
                     </LinearLayout>
 

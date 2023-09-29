@@ -3,5 +3,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="seleccionarCiudad">  Eliga una ciudad  </string>
-    <string name="seleccionarEspecialidad">  Eliga una especialidad  </string>
+    <string name="seleccionarEspecialidad">  Elige una especialidad  </string>
+    <string name="seleccionarMedico">  Elige un medico  </string>
 </resources>

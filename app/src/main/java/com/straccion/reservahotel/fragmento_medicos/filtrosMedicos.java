@@ -3,11 +3,13 @@ package com.straccion.reservahotel.fragmento_medicos;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.straccion.reservahotel.Contenedor;
@@ -22,6 +24,7 @@ public class filtrosMedicos extends Fragment {
 
     View mView;
     Button btnConsultarMedico;
+    AppCompatSpinner spnElegirCiudad, spnServicio;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,6 +72,16 @@ public class filtrosMedicos extends Fragment {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_filtros_medicos, container, false);
         btnConsultarMedico = mView.findViewById(R.id.btnConsultarMedico);
+        spnServicio = mView.findViewById(R.id.spnServicio);
+        spnElegirCiudad = mView.findViewById(R.id.spnElegirCiudad);
+
+        String[] opcionesEspcialidad = {"Dermatologia", "Ginecologia", "Medicina Interna", "Oftalmologia", "Ortopedia y Traumatologia", "Pediatria", "Urologia"};
+        ArrayAdapter<String> adap = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, opcionesEspcialidad);
+        spnServicio.setAdapter(adap);
+
+        String[] opcionesCiudad = {"Medellin", "Bogota", "Cali", "Barranquilla"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, opcionesCiudad);
+        spnElegirCiudad.setAdapter(adapter);
 
         btnConsultarMedico.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
 
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -18,7 +20,9 @@ import android.widget.ImageView;
 import com.straccion.reservahotel.Contenedor;
 import com.straccion.reservahotel.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,10 +30,14 @@ import java.util.Calendar;
  * create an instance of this fragment.
  */
 public class reservarCita extends Fragment {
-    private EditText editTextDate;
-    private DatePickerDialog datePickerDialog;
+
     View mView;
     ImageView imgAtras;
+    AppCompatSpinner spnElegirMedico;
+
+    private SimpleDateFormat dateFormatter;
+    private DatePickerDialog datePickerDialog;
+    private EditText editTextDate;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,10 +85,24 @@ public class reservarCita extends Fragment {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_reservar_cita, container, false);
 
+
+        imgAtras = mView.findViewById(R.id.imgAtras);
+        spnElegirMedico = mView.findViewById(R.id.spnElegirMedico);
+
+        String[] opcionesEspcialidad = {"Dr. Juan Pérez", "Dr. Manuel Gonzales", "Dr. Carlos Sánchez", "Dr. Jorge Rodríguez", "Dr. Eduardo López", "Dr. Andrés Martínez", "Dr. Luis Ramírez", "Dr. Antonio Torres"};
+        ArrayAdapter<String> adap = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, opcionesEspcialidad);
+        spnElegirMedico.setAdapter(adap);
+
+
         //Codigo para mostrar el calendario
         editTextDate = mView.findViewById(R.id.editTextDate);
-        imgAtras = mView.findViewById(R.id.imgAtras);
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
 
+        // Obtiene la fecha actual
+        Calendar calendar = Calendar.getInstance();
+        Date currentDate = calendar.getTime();
+        String fechahoy = dateFormatter.format(currentDate);
+        editTextDate.setText(fechahoy);
         datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener(){
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {

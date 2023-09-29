@@ -93,7 +93,7 @@ public class reservaFiltro extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, opcionesCiudad);
         spnCiudad.setAdapter(adapter);
 
-        String[] opcionesEspcialidad = {"Bioenergetica", "Dermatologia", "Ginecologia", "Medicina Interna", "Oftalmologia", "Ortopedia y Traumatologia", "Pediatria", "Urologia"};
+        String[] opcionesEspcialidad = {"Dermatologia", "Ginecologia", "Medicina Interna", "Oftalmologia", "Ortopedia y Traumatologia", "Pediatria", "Urologia"};
         ArrayAdapter<String> adap = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, opcionesEspcialidad);
         spnEspecialidad.setAdapter(adap);
 
