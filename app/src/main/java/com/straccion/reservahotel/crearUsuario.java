@@ -20,6 +20,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.straccion.reservahotel.comprimirImagenes.FileUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -28,37 +30,30 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class crearUsuario extends AppCompatActivity {
 
-    CircleImageView circleImagenProfile;
+    CircleImageView circleImagenProfile, circleVolver;
     AlertDialog.Builder mBuilderSelector;
-    CharSequence options[];
     File ImageFile;
-    File mPhotoFile1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_usuario);
 
         circleImagenProfile = findViewById(R.id.circleImagenProfile);
+        circleVolver = findViewById(R.id.circleVolver);
 
         circleImagenProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectOptionImage(1);
-            }
-        });
-
-    }
-
-    private void selectOptionImage(int requestCode) {
-        mBuilderSelector.setItems(options, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
                 openGallery();
             }
         });
-        mBuilderSelector.show();
+        circleVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
-
     private void openGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
@@ -72,9 +67,8 @@ public class crearUsuario extends AppCompatActivity {
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK){
                         try {
-                            mPhotoFile1 = null;
-                            //ImageFile = FileUtil.from(this, result.getData().getData());
-                            //circleImagenProfile.setImageBitmap(BitmapFactory.decodeFile(mImageFile.getAbsolutePath()));
+                            ImageFile = FileUtil.from(crearUsuario.this, result.getData().getData());
+                            circleImagenProfile.setImageBitmap(BitmapFactory.decodeFile(ImageFile.getAbsolutePath()));
                         }catch (Exception e){
                             Log.d("Error", "Se produjo un error" + e.getMessage());
                             Toast.makeText(crearUsuario.this, "Se produjo un error" + e.getMessage(), Toast.LENGTH_LONG).show();
