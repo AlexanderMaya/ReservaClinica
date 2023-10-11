@@ -68,6 +68,7 @@ public class Contenedor extends AppCompatActivity {
             }
         }else {
             //abrirFragmento(new ingresarReserva());
+            int numero;
         }
 
 

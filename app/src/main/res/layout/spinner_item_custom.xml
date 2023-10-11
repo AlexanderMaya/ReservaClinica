@@ -6,6 +6,8 @@
     android:padding="10dp"
     android:textColor="@color/grisOscuro"
     android:fontFamily="sans-serif-light"
+    android:ellipsize="end"
+    android:singleLine="true"
     xmlns:android="http://schemas.android.com/apk/res/android"/>
 
 
