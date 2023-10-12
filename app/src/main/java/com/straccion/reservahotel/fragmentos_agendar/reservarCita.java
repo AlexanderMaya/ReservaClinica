@@ -4,9 +4,11 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
-
 import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -16,13 +18,18 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.straccion.reservahotel.Adaptadores.Adapter;
 import com.straccion.reservahotel.Contenedor;
+import com.straccion.reservahotel.HorariosMedicos;
 import com.straccion.reservahotel.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +37,8 @@ import java.util.Date;
  * create an instance of this fragment.
  */
 public class reservarCita extends Fragment {
-
+    List<HorariosMedicos> horariosMedicos;
+    RecyclerView rclAgendar;
     View mView;
     ImageView imgAtras;
     AppCompatSpinner spnElegirMedico;
@@ -88,6 +96,13 @@ public class reservarCita extends Fragment {
 
         imgAtras = mView.findViewById(R.id.imgAtras);
         spnElegirMedico = mView.findViewById(R.id.spnElegirMedico);
+        rclAgendar = mView.findViewById(R.id.rclAgendar);
+        rclAgendar.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        rclAgendar.setLayoutManager(linearLayoutManager);
+
+
+
 
         String[] opcionesEspcialidad = {"Dr. Juan Pérez", "Dr. Manuel Gonzales", "Dr. Carlos Sánchez", "Dr. Jorge Rodríguez", "Dr. Eduardo López", "Dr. Andrés Martínez", "Dr. Luis Ramírez", "Dr. Antonio Torres"};
         ArrayAdapter<String> adap = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, opcionesEspcialidad);
@@ -108,6 +123,8 @@ public class reservarCita extends Fragment {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
                 editTextDate.setText(selectedDate);
+                horariosMedicos = new ArrayList<>();
+                cargarLista();
             }
         },
             Calendar.getInstance().get(Calendar.YEAR),
@@ -132,6 +149,29 @@ public class reservarCita extends Fragment {
             }
         });
         return  mView;
+    }
+
+    private void cargarLista() {
+
+        HorariosMedicos horario1 = new HorariosMedicos("08:00 AM", "Clinica A", "Dr. Smith");
+        HorariosMedicos horario2 = new HorariosMedicos("09:30 AM", "Clinica B", "Dra. Johnson");
+        HorariosMedicos horario3 = new HorariosMedicos("11:15 AM", "Clinica C", "Dr. Brown");
+
+
+        List<HorariosMedicos> horariosMedicos = new ArrayList<>();
+
+
+        horariosMedicos.add(horario1);
+        horariosMedicos.add(horario2);
+        horariosMedicos.add(horario3);
+
+        Adapter adapter = new Adapter(horariosMedicos, getContext());
+        rclAgendar.setAdapter(adapter);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     public void consular(int abrirventana){
