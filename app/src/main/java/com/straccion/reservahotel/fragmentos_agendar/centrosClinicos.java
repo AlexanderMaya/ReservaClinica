@@ -88,10 +88,24 @@ public class centrosClinicos extends Fragment {
         final CardView cardView2 = mview.findViewById(R.id.cardView2);
         final CardView cardView3 = mview.findViewById(R.id.cardView3);
         final CardView cardView4 = mview.findViewById(R.id.cardView4);
+        final CardView cardView5 = mview.findViewById(R.id.cardView5);
+        final CardView cardView6 = mview.findViewById(R.id.cardView6);
+        final CardView cardView7 = mview.findViewById(R.id.cardView7);
+        final CardView cardView8 = mview.findViewById(R.id.cardView8);
+        final CardView cardView9 = mview.findViewById(R.id.cardView9);
+        final CardView cardView10 = mview.findViewById(R.id.cardView10);
+        final CardView cardView11 = mview.findViewById(R.id.cardView11);
         final LinearLayout extraInfoLayout1 = mview.findViewById(R.id.lnlInformacionAdd1);
         final LinearLayout extraInfoLayout2 = mview.findViewById(R.id.lnlInformacionAdd2);
         final LinearLayout extraInfoLayout3 = mview.findViewById(R.id.lnlInformacionAdd3);
         final LinearLayout extraInfoLayout4 = mview.findViewById(R.id.lnlInformacionAdd4);
+        final LinearLayout extraInfoLayout5 = mview.findViewById(R.id.lnlInformacionAdd5);
+        final LinearLayout extraInfoLayout6 = mview.findViewById(R.id.lnlInformacionAdd6);
+        final LinearLayout extraInfoLayout7 = mview.findViewById(R.id.lnlInformacionAdd7);
+        final LinearLayout extraInfoLayout8 = mview.findViewById(R.id.lnlInformacionAdd8);
+        final LinearLayout extraInfoLayout9 = mview.findViewById(R.id.lnlInformacionAdd9);
+        final LinearLayout extraInfoLayout10 = mview.findViewById(R.id.lnlInformacionAdd10);
+        final LinearLayout extraInfoLayout11 = mview.findViewById(R.id.lnlInformacionAdd11);
         circleVolverEdit = mview.findViewById(R.id.circleVolverEdit);
         circleVolverEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +152,76 @@ public class centrosClinicos extends Fragment {
                     extraInfoLayout4.setVisibility(View.GONE);
                 } else {
                     extraInfoLayout4.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (extraInfoLayout5.getVisibility() == View.VISIBLE) {
+                    extraInfoLayout5.setVisibility(View.GONE);
+                } else {
+                    extraInfoLayout5.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardView6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (extraInfoLayout6.getVisibility() == View.VISIBLE) {
+                    extraInfoLayout6.setVisibility(View.GONE);
+                } else {
+                    extraInfoLayout6.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardView7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (extraInfoLayout7.getVisibility() == View.VISIBLE) {
+                    extraInfoLayout7.setVisibility(View.GONE);
+                } else {
+                    extraInfoLayout7.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardView8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (extraInfoLayout8.getVisibility() == View.VISIBLE) {
+                    extraInfoLayout8.setVisibility(View.GONE);
+                } else {
+                    extraInfoLayout8.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardView9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (extraInfoLayout9.getVisibility() == View.VISIBLE) {
+                    extraInfoLayout9.setVisibility(View.GONE);
+                } else {
+                    extraInfoLayout9.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardView10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (extraInfoLayout10.getVisibility() == View.VISIBLE) {
+                    extraInfoLayout10.setVisibility(View.GONE);
+                } else {
+                    extraInfoLayout10.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardView11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (extraInfoLayout11.getVisibility() == View.VISIBLE) {
+                    extraInfoLayout11.setVisibility(View.GONE);
+                } else {
+                    extraInfoLayout11.setVisibility(View.VISIBLE);
                 }
             }
         });

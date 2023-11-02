@@ -26,7 +26,7 @@
                 android:id="@+id/tituloTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MEDICOS"
+                android:text="CLINICAS Y HOSPITALES"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -136,7 +136,7 @@
                             android:id="@+id/titleTextView1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Clinmica Medellin S.A.S "
+                            android:text="Clinica Medellin S.A.S "
                             android:textSize="18sp"
                             android:padding="8dp" />
 
@@ -285,10 +285,401 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/sanvicente"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hospital San Vicente Fundacion"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/san_vicente"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Calle 64 # 51D - 154"
+                                android:padding="2dp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 4441333"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/la_estrella"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hospital La Estrella"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/hospitallaestrella"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Cl. 83A Sur #6045"
+                                android:padding="2dp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 3106070"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/las_americas"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Clinica Las Americas"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/clinica_lasamericas"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Dg. 75B #2A-80/140"
+                                android:padding="2dp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 3421010"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/hospitalsanrafael"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hospital San Rafael"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/san_rafael"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Cra. 51a #4551"
+                                android:padding="2dp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 44482224"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/sanjuandedios"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hospital San Juan de Dios"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/hospitalsanjuandedios"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Rionegro-Autopista Medellín-Bogotá"
+                                android:padding="2dp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 45313700"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/clinicasomer"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Clinica Somer"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/clinica_somer"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Cl. 38 #No. 54A-35"
+                                android:padding="2dp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 6052626"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp">
+
+                    <!-- Contenedor principal de la tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Imagen de la tarjeta -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/clinicaces"
+                            android:scaleType="centerCrop"/>
+
+                        <!-- Título de la tarjeta -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Clinica CES"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <!-- Contenedor para información adicional (inicialmente invisible) -->
+                        <LinearLayout
+                            android:id="@+id/lnlInformacionAdd11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <!-- Información adicional -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/clinica_ces"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dirección: Calle 58 N° 50C-2 Prado Centro"
+                                android:padding="2dp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telefono: 3229303"
+                                android:padding="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
-
         </ScrollView>
-
-
     </LinearLayout>
 </RelativeLayout>

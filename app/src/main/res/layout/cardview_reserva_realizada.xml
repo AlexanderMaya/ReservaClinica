@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/colorReservas">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/txtfechaOculta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <TextView
+                android:id="@+id/txtPosicion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/txtDia"
+                android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:text="25"
+                android:textSize="30sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/txtMes"
+                android:layout_width="75dp"
+                android:layout_height="25dp"
+                android:text="OCTUBRE"
+                android:gravity="center"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="24sp"
+                android:autoSizeStepGranularity="2sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/txtEspecialidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dermatologia"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="14sp"
+                android:autoSizeMaxTextSize="24sp"
+                android:autoSizeStepGranularity="2sp"/>
+
+            <TextView
+                android:id="@+id/txthora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11 AM"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/txtDoctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JUAN PEREZ"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/txtLugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clinica El Rosario"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="3dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ELIMINAR"
+                android:gravity="center"/>
+            <ImageView
+                android:id="@+id/imgBorrar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="6dp"
+                android:src="@drawable/eliminar"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

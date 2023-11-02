@@ -2,6 +2,10 @@ package com.straccion.reservahotel.fragmentos_agendar;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -12,9 +16,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.straccion.reservahotel.AdminBD;
 import com.straccion.reservahotel.Contenedor;
 import com.straccion.reservahotel.R;
+import com.straccion.reservahotel.perfil.perfilUsuario;
+
+import java.io.File;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +34,14 @@ import com.straccion.reservahotel.R;
  */
 public class ingresarReserva extends Fragment {
     View mview;
+    AdminBD adminBD;
+    CircleImageView circleImagenPerfil;
+    TextView txtnombreUs;
+    File ImageFile;
+    int idUser;
+    String imagen;
+    String nombreUsuario;
+
     CardView cardCrearCita, cardModificarCita, cardConsultarCentros ;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -63,6 +82,11 @@ public class ingresarReserva extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        Bundle args = getArguments();
+        if (args != null){
+            idUser = args.getInt("idUser",0);
+        }
     }
 
 
@@ -74,7 +98,22 @@ public class ingresarReserva extends Fragment {
         cardCrearCita = mview.findViewById(R.id.cardCrearCita);
         cardConsultarCentros = mview.findViewById(R.id.cardConsultarCentros);
         cardModificarCita = mview.findViewById(R.id.cardModificarCita);
+        circleImagenPerfil = mview.findViewById(R.id.circleImagenPerfil);
+        txtnombreUs = mview.findViewById(R.id.txtnombreUs);
 
+
+        adminBD = new AdminBD(getContext());
+
+
+
+        circleImagenPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), perfilUsuario.class);
+                intent.putExtra("idUser",idUser);
+                startActivity(intent);
+            }
+        });
         cardCrearCita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +123,7 @@ public class ingresarReserva extends Fragment {
         cardModificarCita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                abrirCita(2);
+                abrirCita(6);
             }
         });
         cardConsultarCentros.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +132,7 @@ public class ingresarReserva extends Fragment {
                 abrirCita(4);
             }
         });
-
+        mostrarImagenPerfilyNombre();
         return mview;
     }
 
@@ -101,8 +140,23 @@ public class ingresarReserva extends Fragment {
         Intent intent = new Intent(getContext(), Contenedor.class);
         int ventana = abrirVentana;
         intent.putExtra("abrir_Contenedor", ventana);
+        intent.putExtra("idUser", idUser);
         startActivity(intent);
     }
 
+    public void mostrarImagenPerfilyNombre(){
+        if (idUser != -1){
+            imagen = adminBD.mostrarImagen(idUser);
+            nombreUsuario = adminBD.saberNombre(idUser);
+            if (imagen != null){
+                ImageFile = new File(imagen);
+                circleImagenPerfil.setImageBitmap(BitmapFactory.decodeFile(ImageFile.getAbsolutePath()));
+            }
+            if (!nombreUsuario.isEmpty()){
+                txtnombreUs.setText("Bienvenido: " + nombreUsuario.toUpperCase());
+            }
+
+        }
+    }
 
 }

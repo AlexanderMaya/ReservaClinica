@@ -1,4 +1,4 @@
-package com.straccion.reservahotel.fragmentos_agendar;
+package com.straccion.reservahotel.fragmentos_modificar_reservas;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -6,8 +6,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -15,15 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.straccion.reservahotel.Adaptadores.Adapter;
 import com.straccion.reservahotel.AdminBD;
 import com.straccion.reservahotel.Contenedor;
-import com.straccion.reservahotel.objetos.HorariosMedicos;
 import com.straccion.reservahotel.R;
+import com.straccion.reservahotel.objetos.HorariosMedicos;
 import com.straccion.reservahotel.objetos.MostarReservas;
 
 import java.text.SimpleDateFormat;
@@ -34,10 +34,10 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link reservarCita#newInstance} factory method to
+ * Use the {@link modificarReserva#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class reservarCita extends Fragment {
+public class modificarReserva extends Fragment {
     List<Integer> dats = new ArrayList<>();
     List<HorariosMedicos> horariosMedicos;
     RecyclerView rclAgendar;
@@ -52,7 +52,7 @@ public class reservarCita extends Fragment {
     String fecha;
     String especialidad;
     int idUser;
-
+    Bundle args;
     private SimpleDateFormat dateFormatter;
     private DatePickerDialog datePickerDialog;
     private EditText editTextDate;
@@ -66,7 +66,7 @@ public class reservarCita extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public reservarCita() {
+    public modificarReserva() {
         // Required empty public constructor
     }
 
@@ -76,11 +76,11 @@ public class reservarCita extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment reservarCita.
+     * @return A new instance of fragment modificarReserva.
      */
     // TODO: Rename and change types and number of parameters
-    public static reservarCita newInstance(String param1, String param2) {
-        reservarCita fragment = new reservarCita();
+    public static modificarReserva newInstance(String param1, String param2) {
+        modificarReserva fragment = new modificarReserva();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -95,19 +95,19 @@ public class reservarCita extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        Bundle args = getArguments();
-        if (args != null){
-            especialidad = args.getString("especialidad");
-            ciudad = args.getString("ciudad");
-            idUser = args.getInt("idUser");
-        }
+        args = getArguments();
+//        if (args != null){
+//            especialidad = args.getString("especialidad");
+//            ciudad = args.getString("ciudad");
+//            idUser = args.getInt("idUser");
+//        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_reservar_cita, container, false);
+        mView = inflater.inflate(R.layout.fragment_modificar_reserva, container, false);
 
 
         imgAtras = mView.findViewById(R.id.imgAtras);
@@ -120,7 +120,6 @@ public class reservarCita extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rclAgendar.setLayoutManager(linearLayoutManager);
 
-        //saber nombre de medico
         spnElegirMedico.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int posicion, long id) {
@@ -133,10 +132,6 @@ public class reservarCita extends Fragment {
 
             }
         });
-
-
-
-
 
         List<String> nombres  = adminBD.medicosFiltroReserva(ciudad, especialidad);
         ArrayAdapter<String> adap = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, nombres);
@@ -162,9 +157,9 @@ public class reservarCita extends Fragment {
                 cargarLista();
             }
         },
-            Calendar.getInstance().get(Calendar.YEAR),
-            Calendar.getInstance().get(Calendar.MONTH),
-            Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
         );
         // Esto evita que el teclado aparezca cuando se hace clic en el EditText
         editTextDate.setInputType(InputType.TYPE_NULL);
@@ -183,7 +178,9 @@ public class reservarCita extends Fragment {
                 consular(2);
             }
         });
-        return  mView;
+
+
+        return mView;
     }
 
     private void cargarLista() {
@@ -263,6 +260,7 @@ public class reservarCita extends Fragment {
         rclAgendar.setAdapter(adapter);
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
@@ -276,4 +274,5 @@ public class reservarCita extends Fragment {
         startActivity(intent);
         getActivity().overridePendingTransition(R.anim.slide_up_in, R.anim.slide_up_out);
     }
+
 }

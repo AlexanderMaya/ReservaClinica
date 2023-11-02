@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmentos_visualizar_reservas.visualizarReservas">
+    tools:context=".fragmentos_modificar_reservas.mostrarReservas">
 
 
     <LinearLayout
@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MIS CITAS"
+            android:text="MODIFICAR CITAS"
             android:textSize="23sp" />
 
     </LinearLayout>

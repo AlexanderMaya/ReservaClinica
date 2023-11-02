@@ -22,6 +22,7 @@ import com.straccion.reservahotel.R;
  */
 public class filtrosMedicos extends Fragment {
 
+    int idUser;
     View mView;
     Button btnConsultarMedico;
     AppCompatSpinner spnElegirCiudad, spnServicio;
@@ -64,6 +65,10 @@ public class filtrosMedicos extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Bundle args = getArguments();
+        if (args != null){
+            idUser = args.getInt("idUser",0);
+        }
     }
 
     @Override
@@ -95,6 +100,7 @@ public class filtrosMedicos extends Fragment {
         Intent intent = new Intent(getContext(), Contenedor.class);
         int ventana = abrirventana;
         intent.putExtra("abrir_Contenedor", ventana);
+        intent.putExtra("idUser", idUser);
         startActivity(intent);
     }
 }

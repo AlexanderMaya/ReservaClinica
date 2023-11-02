@@ -1,6 +1,5 @@
-package com.straccion.reservahotel.fragmentos_visualizar_reservas;
+package com.straccion.reservahotel.fragmentos_modificar_reservas;
 
-import android.content.ContentValues;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,27 +10,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.straccion.reservahotel.Adaptadores.reservasAdapter;
-import com.straccion.reservahotel.Adaptadores.Adapter;
+import com.straccion.reservahotel.Adaptadores.modificarAdapter;
 import com.straccion.reservahotel.AdminBD;
 import com.straccion.reservahotel.R;
-import com.straccion.reservahotel.objetos.HorariosMedicos;
 import com.straccion.reservahotel.objetos.MostarReservas;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link visualizarReservas#newInstance} factory method to
+ * Use the {@link mostrarReservas#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class visualizarReservas extends Fragment {
-    reservasAdapter reservasAdapter;
+public class mostrarReservas extends Fragment {
+    modificarAdapter modificarAdapter;
     View mView;
     AdminBD adminBD;
     RecyclerView rclReservas;
+    int idUser;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,7 +39,7 @@ public class visualizarReservas extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public visualizarReservas() {
+    public mostrarReservas() {
         // Required empty public constructor
     }
 
@@ -52,11 +49,11 @@ public class visualizarReservas extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment visualizarReservas.
+     * @return A new instance of fragment mostrarReservas.
      */
     // TODO: Rename and change types and number of parameters
-    public static visualizarReservas newInstance(String param1, String param2) {
-        visualizarReservas fragment = new visualizarReservas();
+    public static mostrarReservas newInstance(String param1, String param2) {
+        mostrarReservas fragment = new mostrarReservas();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,12 +68,16 @@ public class visualizarReservas extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Bundle args = getArguments();
+        if (args != null){
+            idUser = args.getInt("idUser",0);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_visualizar_reservas, container, false);
+        mView = inflater.inflate(R.layout.fragment_mostrar_reservas, container, false);
 
         rclReservas = mView.findViewById(R.id.rclReservas);
 
@@ -88,10 +89,9 @@ public class visualizarReservas extends Fragment {
         List<MostarReservas> datos = new ArrayList<>();
         datos = adminBD.validarReservasAMostrar();
 
-        reservasAdapter = new reservasAdapter(datos, getContext());
+        modificarAdapter = new modificarAdapter(datos, idUser, getContext());
 
-        rclReservas.setAdapter(reservasAdapter);
-
+        rclReservas.setAdapter(modificarAdapter);
 
         return  mView;
     }

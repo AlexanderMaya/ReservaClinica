@@ -1,13 +1,15 @@
-package com.straccion.reservahotel;
+package com.straccion.reservahotel.objetos;
 
 public class HorariosMedicos{
     private String hora;
     private String clinica;
     private String Medico;
+    private String fecha;
 
-    public HorariosMedicos(String hora, String clinica, String medico) {
+    public HorariosMedicos(String hora, String clinica, String medico, String fecha) {
         this.hora = hora;
         this.clinica = clinica;
+        this.fecha = fecha;
         Medico = medico;
     }
 
@@ -33,6 +35,14 @@ public class HorariosMedicos{
 
     public void setMedico(String medico) {
         Medico = medico;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
 }

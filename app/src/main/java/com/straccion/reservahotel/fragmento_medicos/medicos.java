@@ -23,6 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class medicos extends Fragment {
     CircleImageView imgVolverFiltro;
     View mView;
+    int idUser;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +35,6 @@ public class medicos extends Fragment {
     private String mParam2;
 
     public medicos() {
-        // Required empty public constructor
     }
 
     /**
@@ -62,6 +62,10 @@ public class medicos extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Bundle args = getArguments();
+        if (args != null){
+            idUser = args.getInt("idUser",0);
+        }
     }
 
     @Override
@@ -74,10 +78,19 @@ public class medicos extends Fragment {
         imgVolverFiltro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().finish();
+                //consular();
             }
         });
 
         return mView;
+    }
+
+    public void consular(int abrirventana){
+        Intent intent = new Intent(getContext(), Contenedor.class);
+        int ventana = abrirventana;
+        intent.putExtra("abrir_Contenedor", ventana);
+        intent.putExtra("idUser", idUser);
+        startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.slide_up_in, R.anim.slide_up_out);
     }
 }
