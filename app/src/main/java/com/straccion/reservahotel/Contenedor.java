@@ -46,9 +46,19 @@ public class Contenedor extends AppCompatActivity {
         especialidad = intent.getStringExtra("especialidad");
         ciudad = intent.getStringExtra("ciudad");
         Bundle args = new Bundle();
-
+        args.putInt("idUser", idUser);
         //Pagina documentacion: https://androidwave.com/bottom-navigation-bar-android-example/
         bottomNavigation = findViewById(R.id.bottomNavigationView);
+
+        //recarga nuevamente la pantalla de eliminar una reserva
+        int ventana2=0;
+        ventana2 = intent.getIntExtra("ventana2", 0);
+        if (ventana2 > 0){
+            bottomNavigation.setSelectedItemId(R.id.itemReservasRealizadas);
+            abrirFragmento(new visualizarReservas(), args);
+        }
+
+
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -63,10 +73,11 @@ public class Contenedor extends AppCompatActivity {
             }
         });
 
-        args.putInt("idUser", idUser);
+
 
         if (intent != null) {
             int valorRecibido = intent.getIntExtra("abrir_Contenedor", 0);
+            int modificar = intent.getIntExtra("modificar", 0);
             if (valorRecibido == 1){
                 abrirFragmento(new ingresarReserva(), args);
             } else if (valorRecibido == 2) {
@@ -84,20 +95,19 @@ public class Contenedor extends AppCompatActivity {
             }else if (valorRecibido == 6) {
                 abrirFragmento(new mostrarReservas(), args);
             }else if (valorRecibido == 7) {
-                Bundle bundle = intent.getExtras();//recupero todos los datos del card
-                abrirFragmento(new modificarFiltro(), bundle);
-            }else if (valorRecibido == 8) {
-                Bundle bundle = intent.getExtras();//recupero todos los datos del card
-                abrirFragmento(new modificarReserva(), bundle);
+                Bundle bundle = intent.getExtras();
+                if (modificar != 0){
+                    abrirFragmento(new modificarReserva(), bundle);
+                }else {
+                    abrirFragmento(new modificarFiltro(), bundle);
+                }
             }
         }else {
             //abrirFragmento(new ingresarReserva());
             int numero;
         }
-
-
-
     }
+
     public void abrirFragmento(Fragment fragment, Bundle args) {
         if (args != null){
             fragment.setArguments(args); // Configura los argumentos en el Fragment

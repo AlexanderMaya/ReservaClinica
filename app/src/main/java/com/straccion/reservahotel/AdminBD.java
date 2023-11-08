@@ -361,5 +361,19 @@ public class AdminBD extends SQLiteOpenHelper {
         }
     }
 
+    public int modificarDatosReserva(int idReserva, int idMedico, String hora, String fecha, String lugar){
+        int resultado;
+
+        ContentValues registro = new ContentValues();
+        registro.put("IDMEDICO", idMedico);
+        registro.put("HORA", hora);
+        registro.put("FECHA", fecha);
+        registro.put("LUGAR", lugar);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        resultado = db.update(TABLA_RESERVACIONES, registro, "ID = " + idReserva, null);
+        return resultado;
+    }
+
 
 }

@@ -1,18 +1,19 @@
 package com.straccion.reservahotel.Adaptadores;
 
-import android.app.AlertDialog;
+
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class modificarAdapter extends RecyclerView.Adapter<modificarAdapter.ViewHolder>{
-    private List<com.straccion.reservahotel.objetos.MostarReservas> MostarReservas;
+    private List<MostarReservas> MostarReservas;
     private Context mcontext;
     AdminBD adminBD;
     modificarFiltro mod;
@@ -96,14 +97,16 @@ public class modificarAdapter extends RecyclerView.Adapter<modificarAdapter.View
                 int idReserva = adminBD.saberIDReserva(medico, hora, fecha,lugar);
 
 
+
                 ContentValues datos = new ContentValues();
                 datos.put("hora", holder.txthora.getText().toString());
                 datos.put("medico", adminBD.saberIDMedico(holder.txtDoctor.getText().toString()));
                 datos.put("lugar", holder.txtLugar.getText().toString());
                 datos.put("fecha", holder.txtfechaOculta.getText().toString());
                 datos.put("hora", holder.txthora.getText().toString());
-                datos.put("idReserva", adminBD.saberIDReserva(medico, hora, fecha,lugar));
+                datos.put("idReserva", idReserva);
                 datos.put("idUser", idUser);
+
 
 
                 Bundle bundle = new Bundle();

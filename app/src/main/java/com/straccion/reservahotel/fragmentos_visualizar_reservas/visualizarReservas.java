@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.straccion.reservahotel.Adaptadores.reservasAdapter;
 import com.straccion.reservahotel.Adaptadores.Adapter;
@@ -31,6 +32,9 @@ public class visualizarReservas extends Fragment {
     reservasAdapter reservasAdapter;
     View mView;
     AdminBD adminBD;
+    Bundle args;
+    int idUser;
+    LinearLayout lnlMensaje;
     RecyclerView rclReservas;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -71,6 +75,10 @@ public class visualizarReservas extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        args = getArguments();
+        if (args != null){
+            idUser = args.getInt("idUser");
+        }
     }
 
     @Override
@@ -79,6 +87,7 @@ public class visualizarReservas extends Fragment {
         mView = inflater.inflate(R.layout.fragment_visualizar_reservas, container, false);
 
         rclReservas = mView.findViewById(R.id.rclReservas);
+        lnlMensaje = mView.findViewById(R.id.lnlMensaje);
 
         adminBD = new AdminBD(getContext());
 
@@ -88,10 +97,12 @@ public class visualizarReservas extends Fragment {
         List<MostarReservas> datos = new ArrayList<>();
         datos = adminBD.validarReservasAMostrar();
 
-        reservasAdapter = new reservasAdapter(datos, getContext());
+        reservasAdapter = new reservasAdapter(datos, getContext(), idUser);
 
         rclReservas.setAdapter(reservasAdapter);
-
+        if (reservasAdapter.getItemCount() > 0){
+            lnlMensaje.setVisibility(View.INVISIBLE);
+        }
 
         return  mView;
     }

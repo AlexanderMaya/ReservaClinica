@@ -74,12 +74,10 @@ public class crearUsuario extends AppCompatActivity {
                     values.put("nombre", "IMAGEN1");
                     values.put("imagen", ImageFile.toString());
                     adminBD.insertarDatosUsuario(nombre, correo, telefono, contraseña, values);
+                    Toast.makeText(crearUsuario.this, "Usuario creado con exito", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(crearUsuario.this, MainActivity.class);
                     startActivity(intent);
-
                 }
-
-
             }
         });
         circleImagenProfile.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.straccion.reservahotel.fragmentos_modificar_reservas;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,9 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.straccion.reservahotel.Adaptadores.modificarAdapter;
 import com.straccion.reservahotel.AdminBD;
+import com.straccion.reservahotel.Contenedor;
 import com.straccion.reservahotel.R;
 import com.straccion.reservahotel.objetos.MostarReservas;
 
@@ -28,6 +33,8 @@ public class mostrarReservas extends Fragment {
     View mView;
     AdminBD adminBD;
     RecyclerView rclReservas;
+    LinearLayout lnlMensaje;
+    ImageView imgPaginaPrincipal;
     int idUser;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -79,8 +86,18 @@ public class mostrarReservas extends Fragment {
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_mostrar_reservas, container, false);
 
-        rclReservas = mView.findViewById(R.id.rclReservas);
 
+
+        lnlMensaje = mView.findViewById(R.id.lnlMensaje);
+        rclReservas = mView.findViewById(R.id.rclReservas);
+        imgPaginaPrincipal = mView.findViewById(R.id.imgPaginaPrincipal);
+
+        imgPaginaPrincipal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                volver(1);
+            }
+        });
         adminBD = new AdminBD(getContext());
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -92,7 +109,20 @@ public class mostrarReservas extends Fragment {
         modificarAdapter = new modificarAdapter(datos, idUser, getContext());
 
         rclReservas.setAdapter(modificarAdapter);
+        if (modificarAdapter.getItemCount() > 0){
+            lnlMensaje.setVisibility(View.INVISIBLE);
+        }
+
+
 
         return  mView;
+    }
+
+    public void volver(int abrirventana){
+        Intent intent = new Intent(getContext(), Contenedor.class);
+        int ventana = abrirventana;
+        intent.putExtra("abrir_Contenedor", ventana);
+        intent.putExtra("idUser", idUser);
+        startActivity(intent);
     }
 }

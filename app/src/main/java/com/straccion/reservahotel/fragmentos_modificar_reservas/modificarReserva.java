@@ -1,6 +1,7 @@
 package com.straccion.reservahotel.fragmentos_modificar_reservas;
 
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -20,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.straccion.reservahotel.Adaptadores.Adapter;
+import com.straccion.reservahotel.Adaptadores.cambiardatosAdapter;
 import com.straccion.reservahotel.AdminBD;
 import com.straccion.reservahotel.Contenedor;
 import com.straccion.reservahotel.R;
@@ -45,13 +47,14 @@ public class modificarReserva extends Fragment {
     ImageView imgAtras;
     AppCompatSpinner spnElegirMedico;
     AdminBD adminBD;
-    Adapter adapter;
+    cambiardatosAdapter adapter;
 
     String ciudad;
     String nombreMedico;
     String fecha;
     String especialidad;
     int idUser;
+    int idReserva;
     Bundle args;
     private SimpleDateFormat dateFormatter;
     private DatePickerDialog datePickerDialog;
@@ -96,11 +99,17 @@ public class modificarReserva extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         args = getArguments();
-//        if (args != null){
-//            especialidad = args.getString("especialidad");
-//            ciudad = args.getString("ciudad");
-//            idUser = args.getInt("idUser");
-//        }
+        if (args != null){
+            especialidad = args.getString("especialidad");
+            ciudad = args.getString("ciudad");
+            idUser = args.getInt("idUser");
+
+            if (args != null && args.containsKey("datos")) {
+                ContentValues datos = args.getParcelable("datos");
+                idReserva = Integer.parseInt(datos.get("idReserva").toString());
+            }
+
+        }
     }
 
     @Override
@@ -136,7 +145,7 @@ public class modificarReserva extends Fragment {
         List<String> nombres  = adminBD.medicosFiltroReserva(ciudad, especialidad);
         ArrayAdapter<String> adap = new ArrayAdapter<>(getContext(), R.layout.spinner_item_custom, nombres);
         spnElegirMedico.setAdapter(adap);
-        nombreMedico = spnElegirMedico.getSelectedItem().toString();
+        //nombreMedico = spnElegirMedico.getSelectedItem().toString();
 
 
         //Codigo para mostrar el calendario
@@ -255,7 +264,7 @@ public class modificarReserva extends Fragment {
         }
 
 
-        adapter = new Adapter(horariosMedicos, getContext());
+        adapter = new cambiardatosAdapter(horariosMedicos, getContext(), idReserva, idUser);
 
         rclAgendar.setAdapter(adapter);
     }

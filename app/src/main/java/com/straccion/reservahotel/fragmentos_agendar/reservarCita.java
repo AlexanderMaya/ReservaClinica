@@ -258,7 +258,7 @@ public class reservarCita extends Fragment {
         }
 
 
-        adapter = new Adapter(horariosMedicos, getContext());
+        adapter = new Adapter(horariosMedicos, getContext(), idUser);
 
         rclAgendar.setAdapter(adapter);
     }

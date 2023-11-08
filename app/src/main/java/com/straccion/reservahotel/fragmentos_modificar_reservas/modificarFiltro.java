@@ -29,7 +29,7 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class modificarFiltro extends Fragment {
-    Button btnConsultar;
+    Button btnModificar;
     AdminBD adminBD;
     AppCompatSpinner spnCiudad, spnEspecialidad;
     ImageView imgRegresar;
@@ -38,6 +38,7 @@ public class modificarFiltro extends Fragment {
     String ciudad;
     String especialidad;
     int idUser;
+    int idReserva;
     Bundle args;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -89,7 +90,7 @@ public class modificarFiltro extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_modificar_filtro, container, false);
-        btnConsultar = mView.findViewById(R.id.btnConsultar);
+        btnModificar = mView.findViewById(R.id.btnModificar);
         imgRegresar = mView.findViewById(R.id.imgRegresar);
         spnCiudad = mView.findViewById(R.id.spnCiudad);
         spnEspecialidad = mView.findViewById(R.id.spnEspecialidad);
@@ -118,7 +119,7 @@ public class modificarFiltro extends Fragment {
         });
 
 
-        btnConsultar.setOnClickListener(new View.OnClickListener() {
+        btnModificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ciudad = spnCiudad.getSelectedItem().toString();
@@ -141,7 +142,7 @@ public class modificarFiltro extends Fragment {
     public void consultar(int abrirventana){
         Intent intent = new Intent(getContext(), Contenedor.class);
         int ventana = abrirventana;
-        intent.putExtra("abrir_Contenedor", ventana);
+        intent.putExtra("modificar", abrirventana);
         intent.putExtra("ciudad", ciudad);
         intent.putExtra("especialidad", especialidad);
         intent.putExtra("idUser", idUser);

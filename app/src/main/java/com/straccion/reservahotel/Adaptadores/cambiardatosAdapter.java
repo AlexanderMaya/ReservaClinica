@@ -1,5 +1,6 @@
 package com.straccion.reservahotel.Adaptadores;
 
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,8 +8,10 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,24 +25,30 @@ import com.straccion.reservahotel.objetos.MostarReservas;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class cambiardatosAdapter extends RecyclerView.Adapter<cambiardatosAdapter.ViewHolder> {
     private List<HorariosMedicos> horariosMedicos;
     private Context mcontext;
-    int idUser;
+    int idReserva;
+
+    int idUser=0;
     AdminBD adminBD;
-    public Adapter(List<HorariosMedicos> horariosMedicos, Context mcontext, int idUser) {
-        this.horariosMedicos = horariosMedicos;
+    public cambiardatosAdapter(List<HorariosMedicos> mostarReservas, Context mcontext, int idReserva, int idUser) {
+        this.horariosMedicos = mostarReservas;
         this.mcontext = mcontext;
+        this.idReserva = idReserva;
         this.idUser = idUser;
     }
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+    // Create new views (invoked by the layout manager)
+    public cambiardatosAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_agendar, parent, false);
-        return new ViewHolder(view);
+        return new cambiardatosAdapter.ViewHolder(view);
+
     }
+    // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull cambiardatosAdapter.ViewHolder holder, int position) {
         HorariosMedicos horarios = horariosMedicos.get(position);
 
         String nombreMedico = horarios.getMedico();
@@ -61,25 +70,27 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setTitle("Confirmar Cita")
+                builder.setTitle("Datos de la nueva cita:")
                         .setMessage("Hora de atencion: " + horaCita +
                                 "\nFecha: " + fecha +
                                 "\nLugar de la cita: " + lugarCita +
-                                "\nMedico: " + nombreMedico)
+                                "\nMedico: " + nombreMedico +
+                                "\n"+
+                                "\n¿Esta seguro que desea modificar la cita actual?")
                         .setCancelable(false)
                         .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 int idMedico = adminBD.saberIDMedico(nombreMedico);
-                                int respuesta = adminBD.llenarHorarios(idMedico, horaCita, fecha, lugarCita);
+                                int respuesta = adminBD.modificarDatosReserva(idReserva, idMedico, horaCita, fecha, lugarCita);
                                 if (respuesta != 0){
-                                    Toast.makeText(mcontext, "Cita reservada con exito", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mcontext, "Cita modificada con exito", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(mcontext, Contenedor.class);
                                     intent.putExtra("idUser", idUser );
-                                    intent.putExtra("abrir_Contenedor", 1 );
+                                    intent.putExtra("abrir_Contenedor", 6 );
                                     mcontext.startActivity(intent);
                                 }else {
-                                    Toast.makeText(mcontext, "No se pudo reservar la cita", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mcontext, "No se pudo modificar la cita", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         })
@@ -93,7 +104,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 mensaje.show();
             }
         });
+
     }
+
     @Override
     public int getItemCount() {
         return horariosMedicos.size();
@@ -101,9 +114,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+
+        View mView;
         TextView txtLugarCita;
         TextView txtHora;
-        View mView;
 
         public ViewHolder(View view) {
             super(view);

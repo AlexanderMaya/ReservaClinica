@@ -48,25 +48,23 @@ public class MainActivity extends AppCompatActivity {
                 String contra = txtInputPassword.getText().toString();
 
                 idUser = adminBD.saberID(correo, contra);
+                if (idUser > 0){
+                    //lleno la base de datos
+                    adminBD.llenarMedicos();
 
-
-
-
-
-
-                //lleno la base de datos
-                adminBD.llenarMedicos();
-
-                Intent intent = new Intent(MainActivity.this, Contenedor.class);
-                int ventana = 1;
-                intent.putExtra("abrir_Contenedor", ventana);
-                intent.putExtra("idUser", idUser);
-                startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this, Contenedor.class);
+                    int ventana = 1;
+                    intent.putExtra("abrir_Contenedor", ventana);
+                    intent.putExtra("idUser", idUser);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                }
             }else {
-                Toast.makeText(this, "No puede estar vacio", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "La contraseña no puede estar vacia", Toast.LENGTH_SHORT).show();
             }
         }else {
-            Toast.makeText(this, "No puede estar vacio", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "El correo no puede estar vacio", Toast.LENGTH_SHORT).show();
         }
     }
 

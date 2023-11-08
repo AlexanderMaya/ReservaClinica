@@ -1,9 +1,12 @@
 package com.straccion.reservahotel.Adaptadores;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -13,7 +16,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.straccion.reservahotel.AdminBD;
+import com.straccion.reservahotel.Contenedor;
 import com.straccion.reservahotel.R;
 import com.straccion.reservahotel.objetos.HorariosMedicos;
 import com.straccion.reservahotel.objetos.MostarReservas;
@@ -24,11 +29,14 @@ import java.util.List;
 public class reservasAdapter extends RecyclerView.Adapter<reservasAdapter.ViewHolder> {
     private List<MostarReservas> MostarReservas;
     private Context mcontext;
+    int idUser=0;
     AdminBD adminBD;
     int posicion=0;
-    public reservasAdapter(List<MostarReservas> mostarReservas, Context mcontext) {
+
+    public reservasAdapter(List<MostarReservas> mostarReservas, Context mcontext, int idUser) {
         this.MostarReservas = mostarReservas;
         this.mcontext = mcontext;
+        this.idUser=idUser;
     }
 
     // Create new views (invoked by the layout manager)
@@ -97,8 +105,11 @@ public class reservasAdapter extends RecyclerView.Adapter<reservasAdapter.ViewHo
                                 int idReserva = adminBD.saberIDReserva(medico, hora, fecha,lugar);
                                 int respuesta = adminBD.borrarReservasRealizadas(idReserva);
                                 if (respuesta != 0){
-
                                     Toast.makeText(mcontext, "Cita borrada con exito", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(mcontext, Contenedor.class);
+                                    intent.putExtra("idUser", idUser );
+                                    intent.putExtra("ventana2", 1 );
+                                    mcontext.startActivity(intent);
                                 }else {
                                     Toast.makeText(mcontext, "No se pudo borrar la cita", Toast.LENGTH_SHORT).show();
                                 }

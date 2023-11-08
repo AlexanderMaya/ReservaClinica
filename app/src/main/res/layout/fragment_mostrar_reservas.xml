@@ -9,23 +9,56 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
 
-        <TextView
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MODIFICAR CITAS"
-            android:textSize="23sp" />
+            android:layout_height="wrap_content">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgPaginaPrincipal"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/icon_volver"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MODIFICAR CITAS"
+                android:textSize="23sp"
+                android:layout_marginRight="25dp"/>
+        </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lnlMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AUN NO POSEE CITAS"
+            android:textSize="22dp"
+            android:enabled="false" />
+    </LinearLayout>
+
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rclReservas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="68dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="60dp"/>
