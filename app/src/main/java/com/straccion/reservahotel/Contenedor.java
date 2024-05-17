@@ -66,8 +66,6 @@ public class Contenedor extends AppCompatActivity {
                     abrirFragmento(new ingresarReserva(), args);
                 } else if (item.getItemId() == R.id.itemReservasRealizadas) {
                     abrirFragmento(new visualizarReservas(), args);
-                } else if (item.getItemId() == R.id.itemMedicos) {
-                    abrirFragmento(new filtrosMedicos(), args);
                 }
                 return true;
             }
@@ -88,10 +86,6 @@ public class Contenedor extends AppCompatActivity {
                 abrirFragmento(new reservarCita(), args);
             }else if (valorRecibido == 4) {
                 abrirFragmento(new centrosClinicos(), args);
-            }else if (valorRecibido == 5) {
-                abrirFragmento(new medicos(), args);
-                MenuItem menuItem = bottomNavigation.getMenu().findItem(R.id.itemMedicos);
-                menuItem.setChecked(true);// sirve para tener el item de medico seleccioando
             }else if (valorRecibido == 6) {
                 abrirFragmento(new mostrarReservas(), args);
             }else if (valorRecibido == 7) {

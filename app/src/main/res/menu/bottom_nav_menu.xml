@@ -3,13 +3,9 @@
     <item
         android:id="@+id/itemRegistrarCita"
         android:title="Agendar"
-        android:icon="@drawable/reserva"/>
+        android:icon="@drawable/ic_calendar"/>
     <item
         android:id="@+id/itemReservasRealizadas"
         android:title="Reservas Realizadas"
-        android:icon="@drawable/calendario"/>
-    <item
-        android:id="@+id/itemMedicos"
-        android:title="Medicos"
-        android:icon="@drawable/medico" />
+        android:icon="@drawable/reserva"/>
 </menu>
